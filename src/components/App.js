@@ -7,6 +7,7 @@ import { onAuthStateChanged } from "firebase/auth";
 function App() {
   const [init, setInit] = useState(false);
   const [isloggedIn, setIsLoggedIn] = useState(false);
+  const [userObj, setUserObj] = useState(null);
   useEffect(() => {
     // 항상 사용자 상태가 변경되면 추적함
     // useEffect에 넣은 이유는 화면에 마운트 될 때
@@ -16,6 +17,7 @@ function App() {
         // User is signed in, see docs for a list of available properties
         // https://firebase.google.com/docs/reference/js/firebase.User
         setIsLoggedIn(true);
+        setUserObj(user);
         // ...
       } else {
         // User is signed out
@@ -27,7 +29,11 @@ function App() {
   }, []);
   return (
     <>
-      {init ? <AppRouter isLoggedIn={isloggedIn} /> : "Initializing..."}
+      {init ? (
+        <AppRouter userObj={userObj} isLoggedIn={isloggedIn} />
+      ) : (
+        "Initializing..."
+      )}
       <footer>&copy; {new Date().getFullYear()} Newitter</footer>
     </>
   );
