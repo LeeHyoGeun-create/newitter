@@ -6,7 +6,7 @@ import { onAuthStateChanged } from "firebase/auth";
 
 function App() {
   const [init, setInit] = useState(false);
-  const [isloggedIn, setIsLoggedIn] = useState(false);
+  // const [isloggedIn, setIsLoggedIn] = useState(false);
   const [userObj, setUserObj] = useState(null);
   useEffect(() => {
     // 항상 사용자 상태가 변경되면 추적함
@@ -16,13 +16,13 @@ function App() {
       if (user) {
         // User is signed in, see docs for a list of available properties
         // https://firebase.google.com/docs/reference/js/firebase.User
-        setIsLoggedIn(true);
+        // setIsLoggedIn(true);
         setUserObj(user);
         // ...
       } else {
         // User is signed out
         // ...
-        setIsLoggedIn(false);
+        // setIsLoggedIn(false);
       }
       setInit(true);
     });
@@ -30,7 +30,7 @@ function App() {
   return (
     <>
       {init ? (
-        <AppRouter userObj={userObj} isLoggedIn={isloggedIn} />
+        <AppRouter userObj={userObj} isLoggedIn={Boolean(userObj)} />
       ) : (
         "Initializing..."
       )}
