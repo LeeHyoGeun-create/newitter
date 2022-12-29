@@ -8,6 +8,9 @@ function App() {
   const [init, setInit] = useState(false);
   // const [isloggedIn, setIsLoggedIn] = useState(false);
   const [userObj, setUserObj] = useState(null);
+  const refreshUser = () => {
+    setUserObj({ ...authService.currentUser });
+  };
   useEffect(() => {
     // 항상 사용자 상태가 변경되면 추적함
     // useEffect에 넣은 이유는 화면에 마운트 될 때
@@ -18,11 +21,13 @@ function App() {
         // https://firebase.google.com/docs/reference/js/firebase.User
         // setIsLoggedIn(true);
         setUserObj(user);
+
         // ...
       } else {
         // User is signed out
         // ...
         // setIsLoggedIn(false);
+        setUserObj(null);
       }
       setInit(true);
     });
@@ -30,7 +35,11 @@ function App() {
   return (
     <>
       {init ? (
-        <AppRouter userObj={userObj} isLoggedIn={Boolean(userObj)} />
+        <AppRouter
+          userObj={userObj}
+          refreshUser={refreshUser}
+          isLoggedIn={Boolean(userObj)}
+        />
       ) : (
         "Initializing..."
       )}
