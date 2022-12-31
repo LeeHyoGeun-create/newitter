@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/LeeHyoGeun-create/newitter.git/static/css/main.16dec349.css",
-    "main.js": "/LeeHyoGeun-create/newitter.git/static/js/main.5710bb2e.js",
-    "static/js/787.600ac189.chunk.js": "/LeeHyoGeun-create/newitter.git/static/js/787.600ac189.chunk.js",
-    "index.html": "/LeeHyoGeun-create/newitter.git/index.html",
-    "main.16dec349.css.map": "/LeeHyoGeun-create/newitter.git/static/css/main.16dec349.css.map",
-    "main.5710bb2e.js.map": "/LeeHyoGeun-create/newitter.git/static/js/main.5710bb2e.js.map",
-    "787.600ac189.chunk.js.map": "/LeeHyoGeun-create/newitter.git/static/js/787.600ac189.chunk.js.map"
+    "main.css": "/LeeHyoGeun-create/newitter/static/css/main.16dec349.css",
+    "main.js": "/LeeHyoGeun-create/newitter/static/js/main.6c2464ab.js",
+    "static/js/787.600ac189.chunk.js": "/LeeHyoGeun-create/newitter/static/js/787.600ac189.chunk.js",
+    "index.html": "/LeeHyoGeun-create/newitter/index.html",
+    "main.16dec349.css.map": "/LeeHyoGeun-create/newitter/static/css/main.16dec349.css.map",
+    "main.6c2464ab.js.map": "/LeeHyoGeun-create/newitter/static/js/main.6c2464ab.js.map",
+    "787.600ac189.chunk.js.map": "/LeeHyoGeun-create/newitter/static/js/787.600ac189.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.16dec349.css",
-    "static/js/main.5710bb2e.js"
+    "static/js/main.6c2464ab.js"
   ]
 }
