@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { doc, deleteDoc, updateDoc } from "firebase/firestore";
 import { ref, deleteObject } from "firebase/storage";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPencilAlt, faTrash } from "@fortawesome/free-solid-svg-icons";
 
 const Neweet = ({ neweetObj, isOwner, dbService, storageService }) => {
   const [editing, setEditing] = useState(false);
@@ -34,10 +36,10 @@ const Neweet = ({ neweetObj, isOwner, dbService, storageService }) => {
   };
 
   return (
-    <div key={neweetObj.id}>
+    <div key={neweetObj.id} className="nweet">
       {editing && isOwner ? (
         <>
-          <form>
+          <form className="container nweetEdit">
             <input
               onChange={onChange}
               type="text"
@@ -46,28 +48,32 @@ const Neweet = ({ neweetObj, isOwner, dbService, storageService }) => {
               value={newNeweet}
               required
             />
+            <input
+              type="submit"
+              onClick={onSubmit}
+              value="Submit"
+              className="formBtn"
+            />
           </form>
-          <button onClick={toggleEditing}>Cancel</button>
-          <input type="submit" onClick={onSubmit} value="Submit" />
+          <button onClick={toggleEditing} className="formBtn cancelBtn">
+            Cancel
+          </button>
         </>
       ) : (
         <>
           <h4>{neweetObj.text}</h4>
           {neweetObj.attachmentUrl && (
-            <img
-              src={neweetObj.attachmentUrl}
-              alt="avata"
-              width="50px"
-              height="50px"
-            />
+            <img src={neweetObj.attachmentUrl} alt="avata" />
           )}
           {isOwner && (
-            <>
-              <>
-                <button onClick={onDeleteClick}>Delete Neweet</button>
-                <button onClick={toggleEditing}>Edit Neweet</button>
-              </>
-            </>
+            <div className="nweet__actions">
+              <button onClick={onDeleteClick}>
+                <FontAwesomeIcon icon={faTrash} />
+              </button>
+              <button onClick={toggleEditing}>
+                <FontAwesomeIcon icon={faPencilAlt} />
+              </button>
+            </div>
           )}
         </>
       )}
