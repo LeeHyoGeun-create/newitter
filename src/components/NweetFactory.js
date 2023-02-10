@@ -43,7 +43,6 @@ const NweetFactory = ({ userObj }) => {
   };
 
   const resetFileForm = () => {
-    console.log("HI");
     fileInput.current.value = "";
   };
 
@@ -89,6 +88,7 @@ const NweetFactory = ({ userObj }) => {
             id="attach-file"
             type="file"
             accept="image/*"
+            ref={fileInput}
             onChange={onFileChange}
             style={{
               opacity: 0,
